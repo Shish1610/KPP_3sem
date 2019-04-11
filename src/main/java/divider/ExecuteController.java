@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ExecuteController {
 
-    private static final Logger log = Logger.getLogger(ExecuteService.class);
+    private static final Logger log = Logger.getLogger(ExecuteController.class);
 
     private ExecuteService service = new ExecuteService();
 
