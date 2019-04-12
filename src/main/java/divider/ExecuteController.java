@@ -26,7 +26,6 @@ public class ExecuteController {
                         ". Incorrect parameters");
 
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Incorrect parameters");
-
             }
             log.info("Dividend = " + dividend + ", Divider = " + divider +
                     ". HTTP status 200, response :" + result.toString());
