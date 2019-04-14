@@ -4,6 +4,14 @@ import java.util.Objects;
 
 public class Result {
 
+    public Integer getQuotient() {
+        return quotient;
+    }
+
+    public Integer getRemainder() {
+        return remainder;
+    }
+
     private final Integer quotient;
     private final Integer remainder;
 
@@ -12,12 +20,12 @@ public class Result {
         this.remainder = remainder;
     }
 
-    public Integer getQuotient() {
-        return quotient;
-    }
-
-    public Integer getRemainder() {
-        return remainder;
+    @Override
+    public String toString() {
+        return "Result{" +
+                "quotient=" + quotient +
+                ", remainder=" + remainder +
+                '}';
     }
 
     @Override
@@ -34,11 +42,4 @@ public class Result {
         return Objects.hash(quotient, remainder);
     }
 
-    @Override
-    public String toString() {
-        return "Result{" +
-                "quotient=" + quotient +
-                ", remainder=" + remainder +
-                '}';
-    }
 }
