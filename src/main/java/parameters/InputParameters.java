@@ -1,8 +1,24 @@
 package parameters;
 
+import java.util.Objects;
+
 public class InputParameters {
     private String dividend;
     private String divider;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InputParameters that = (InputParameters) o;
+        return Objects.equals(dividend, that.dividend) &&
+                Objects.equals(divider, that.divider);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(dividend, divider);
+    }
 
     public InputParameters(String dividend, String divider) {
         this.dividend = dividend;

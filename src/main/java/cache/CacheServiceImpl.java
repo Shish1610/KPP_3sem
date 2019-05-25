@@ -11,7 +11,7 @@ public class CacheServiceImpl implements CacheService {
 
     private static final Logger log = Logger.getLogger(ExecuteController.class);
 
-    public static final Integer MAX_CACHE_RECORDS = 20;
+    public static final Integer MAX_CACHE_RECORDS = 2;
 
     private ConcurrentHashMap<InputParameters, Result> cacheMap = new ConcurrentHashMap<>();
 
@@ -29,16 +29,14 @@ public class CacheServiceImpl implements CacheService {
                 if (localInstance == null) {
                     instance = localInstance = new CacheServiceImpl();
                 }
-
             }
-
         }
         return instance;
     }
 
     @Override
     public void add(InputParameters inputParameters, Result result) {
-        if(cacheMap.size() > MAX_CACHE_RECORDS){
+        if(cacheMap.size() >= MAX_CACHE_RECORDS){
             cacheMap.clear();
             log.info("Cleared cache");
         }
@@ -48,7 +46,6 @@ public class CacheServiceImpl implements CacheService {
 
     @Override
     public Result getFromCache(InputParameters inputParameters) {
-        log.info("Getted result from cache");
         return cacheMap.get(inputParameters);
     }
 }
