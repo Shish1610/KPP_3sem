@@ -63,11 +63,11 @@ public class ExecuteService {
 
         Map<Result, Integer> mostPopularResultMap = new HashMap<>();
 
-        answer.getResults().forEach(fibonacci -> {
-            if (mostPopularResultMap.containsKey(fibonacci)) {
-                mostPopularResultMap.put(fibonacci, mostPopularResultMap.get(fibonacci) + 1);
+        answer.getResults().forEach(res -> {
+            if (mostPopularResultMap.containsKey(res)) {
+                mostPopularResultMap.put(res, mostPopularResultMap.get(res) + 1);
             } else {
-                mostPopularResultMap.put(fibonacci, 1);
+                mostPopularResultMap.put(res, 1);
             }
         });
 
