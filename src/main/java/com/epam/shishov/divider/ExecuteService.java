@@ -1,19 +1,29 @@
-package divider;
+package com.epam.shishov.divider;
 
-import answers.ResultsList;
-import cache.CacheService;
-import cache.CacheServiceImpl;
+import com.epam.shishov.repos.ResultRepos;
+import com.epam.shishov.answers.ResultsList;
+import com.epam.shishov.cache.CacheService;
+import com.epam.shishov.cache.CacheServiceImpl;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import parameters.InputParameters;
-import parameters.ParametersList;
-import validator.Validator;
+import com.epam.shishov.parameters.InputParameters;
+import com.epam.shishov.parameters.ParametersList;
+import com.epam.shishov.validator.Validator;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class ExecuteService {
+
+    private ResultRepos repos;
+
+    @Autowired
+    public ExecuteService(ResultRepos repos) {
+        this.repos = repos;
+    }
+
 
     private CacheService cacheService = CacheServiceImpl.getInstance();
 
@@ -26,17 +36,19 @@ public class ExecuteService {
         Integer divd = Integer.valueOf(inputParameters.getDividend());
         Integer divr = Integer.valueOf(inputParameters.getDivider());
 
-        if (divr == 0)
+        if (!validator.isValid(inputParameters))
             throw new IllegalArgumentException("Invalid input(Divider = 0)");
 
         Result outcome = cacheService.getFromCache(inputParameters);
         if (outcome != null) {
-            log.info("Getted result from cache");
+            log.info("Getted result from com.epam.shishov.cache");
             return outcome;
         } else {
             Integer quot = divd / divr;
             Integer ren = divd % divr;
             Result result = new Result(quot, ren);
+
+            result = repos.save(result);
             cacheService.add(inputParameters, result);
             return result;
         }
@@ -45,6 +57,9 @@ public class ExecuteService {
 
 
     public ResultsList getResults(ParametersList parametersList) {
+
+
+
         List<Result> list = parametersList.getParameters().stream()
                 .filter(p -> validator.isValid(p))
                 .map(this::getResult)
@@ -52,8 +67,8 @@ public class ExecuteService {
         System.out.println("List size: " + list.size());
 
         ResultsList answer = new ResultsList(new ArrayList<>(list));
-        System.out.println("Amount of input parameters:" + parametersList.getParameters().size());
-        System.out.println("Amount of invalid input parameters: " +
+        System.out.println("Amount of input com.epam.shishov.parameters:" + parametersList.getParameters().size());
+        System.out.println("Amount of invalid input com.epam.shishov.parameters: " +
                 parametersList.getParameters().stream().filter(param -> !validator.isValid(param)).count());
 
         if (!list.isEmpty()) {

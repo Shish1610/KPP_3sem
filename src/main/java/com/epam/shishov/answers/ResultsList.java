@@ -1,6 +1,6 @@
-package answers;
+package com.epam.shishov.answers;
 
-import divider.Result;
+import com.epam.shishov.divider.Result;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

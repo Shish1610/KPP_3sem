@@ -1,4 +1,4 @@
-package parameters;
+package com.epam.shishov.parameters;
 
 import java.util.Objects;
 
@@ -45,7 +45,7 @@ public class InputParameters {
     public String toString() {
         return "InputParameters{" +
                 "dividend='" + dividend + '\'' +
-                ", divider='" + divider + '\'' +
+                ", com.epam.shishov.divider='" + divider + '\'' +
                 '}';
     }
 }

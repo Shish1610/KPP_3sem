@@ -1,4 +1,4 @@
-package parameters;
+package com.epam.shishov.parameters;
 
 import java.util.ArrayList;
 

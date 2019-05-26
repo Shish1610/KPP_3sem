@@ -1,14 +1,16 @@
-package divider;
+package com.epam.shishov.divider;
 
 
 import org.junit.Test;
-import parameters.InputParameters;
+import com.epam.shishov.parameters.InputParameters;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import static junit.framework.TestCase.assertEquals;
 
 public class ExecuteServiceTest {
 
-    ExecuteService service=new ExecuteService();
+    @Autowired
+    ExecuteService service;
 
     @Test
     public void getResult() {

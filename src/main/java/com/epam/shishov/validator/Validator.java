@@ -1,6 +1,6 @@
-package validator;
+package com.epam.shishov.validator;
 
-import parameters.InputParameters;
+import com.epam.shishov.parameters.InputParameters;
 
 public class Validator {
 

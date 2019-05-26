@@ -1,7 +1,7 @@
-package cache;
+package com.epam.shishov.cache;
 
-import parameters.InputParameters;
-import divider.Result;
+import com.epam.shishov.parameters.InputParameters;
+import com.epam.shishov.divider.Result;
 
 public interface CacheService {
     void add(InputParameters inputParameters, Result result);

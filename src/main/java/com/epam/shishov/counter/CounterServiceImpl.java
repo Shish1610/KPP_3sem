@@ -1,6 +1,6 @@
-package counter;
+package com.epam.shishov.counter;
 
-import cache.CacheServiceImpl;
+import com.epam.shishov.cache.CacheServiceImpl;
 
 import java.util.concurrent.atomic.AtomicLong;
 

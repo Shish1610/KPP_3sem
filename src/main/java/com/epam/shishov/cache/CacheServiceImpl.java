@@ -1,8 +1,8 @@
-package cache;
+package com.epam.shishov.cache;
 
-import divider.ExecuteController;
-import parameters.InputParameters;
-import divider.Result;
+import com.epam.shishov.divider.ExecuteController;
+import com.epam.shishov.parameters.InputParameters;
+import com.epam.shishov.divider.Result;
 import org.apache.log4j.Logger;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -38,10 +38,10 @@ public class CacheServiceImpl implements CacheService {
     public void add(InputParameters inputParameters, Result result) {
         if(cacheMap.size() >= MAX_CACHE_RECORDS){
             cacheMap.clear();
-            log.info("Cleared cache");
+            log.info("Cleared com.epam.shishov.cache");
         }
         cacheMap.put(inputParameters, result);
-        log.info("Added result to cache");
+        log.info("Added result to com.epam.shishov.cache");
     }
 
     @Override
