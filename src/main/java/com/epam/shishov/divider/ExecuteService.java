@@ -67,8 +67,8 @@ public class ExecuteService {
         System.out.println("List size: " + list.size());
 
         ResultsList answer = new ResultsList(new ArrayList<>(list));
-        System.out.println("Amount of input com.epam.shishov.parameters:" + parametersList.getParameters().size());
-        System.out.println("Amount of invalid input com.epam.shishov.parameters: " +
+        System.out.println("Amount of input parameters:" + parametersList.getParameters().size());
+        System.out.println("Amount of invalid input parameters: " +
                 parametersList.getParameters().stream().filter(param -> !validator.isValid(param)).count());
 
         if (!list.isEmpty()) {

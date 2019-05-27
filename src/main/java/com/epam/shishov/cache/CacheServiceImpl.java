@@ -11,7 +11,7 @@ public class CacheServiceImpl implements CacheService {
 
     private static final Logger log = Logger.getLogger(ExecuteController.class);
 
-    public static final Integer MAX_CACHE_RECORDS = 2;
+    public static final Integer MAX_CACHE_RECORDS = 20;
 
     private ConcurrentHashMap<InputParameters, Result> cacheMap = new ConcurrentHashMap<>();
 
